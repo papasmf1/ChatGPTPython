@@ -1,4 +1,4 @@
-#Chap09_중고장터검색_GUI연결.py
+#Chap10_중고장터검색_GUI연결.py
 import sys
 from PyQt5.QtWidgets import *
 import urllib.request

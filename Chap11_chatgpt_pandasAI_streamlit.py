@@ -11,7 +11,7 @@ import matplotlib
 matplotlib.use("TkAgg")
 
 #내가 사용하는 Open AI Key로 변경해야 합니다. 
-llm = OpenAI(api_token="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")
+llm = OpenAI(api_token="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")
 
 st.title("PandasAI를 사용한 프롬프트 기반의 분석")
 

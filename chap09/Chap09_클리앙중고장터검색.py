@@ -1,5 +1,4 @@
 #Chap09_클리앙중고장터검색.py
-# coding:utf-8
 from bs4 import BeautifulSoup
 import urllib.request
 import re 
