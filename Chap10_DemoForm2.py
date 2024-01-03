@@ -1,5 +1,5 @@
-#Chap09_DemoForm2.py 
-#Chap09_DemoForm2.ui(화면을 XML문서 저장) + Chap09_DemoForm2.py(로직 코딩) 
+#Chap10_DemoForm2.py 
+#Chap10_DemoForm2.ui(화면을 XML문서 저장) + Chap10_DemoForm2.py(로직 코딩) 
 import sys 
 #Qt패키지를 임포트 
 from PyQt5.QtWidgets import *
@@ -9,7 +9,7 @@ import urllib.request
 from bs4 import BeautifulSoup
 
 #디자인 문서를 로딩
-form_class = uic.loadUiType("c:\\work\\DemoForm2.ui")[0]
+form_class = uic.loadUiType("c:\\work\\Chap10_DemoForm2.ui")[0]
 #윈도우 클래스 정의(좀 더 기능이 많은 창 QMainWindow)
 class DemoForm(QMainWindow, form_class):
     def __init__(self):
