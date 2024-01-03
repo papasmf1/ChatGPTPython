@@ -534,3 +534,185 @@ result = {'type': 'string', 'value': f'The employee with the highest salary is {
 2024-01-03 11:09:12 [INFO] Answer: {'type': 'string', 'value': 'The employee with the highest salary is moon.'}
 2024-01-03 11:09:12 [INFO] Executed in: 0.20690512657165527s
 2024-01-03 11:09:12 [INFO] Executing Step 6: ResultParsing
+2024-01-03 11:33:11 [INFO] Question: 가장 행복한 나라 5개는 어느 나라인가?
+2024-01-03 11:33:13 [INFO] Running PandasAI with openai LLM...
+2024-01-03 11:33:13 [INFO] Prompt ID: d18dba3f-2e4f-46df-abc6-c8660706b210
+2024-01-03 11:33:15 [INFO] Executing Step 0: CacheLookup
+2024-01-03 11:33:16 [INFO] Using cached response
+2024-01-03 11:33:16 [INFO] Executing Step 1: PromptGeneration
+2024-01-03 11:33:16 [INFO] Executing Step 2: CodeGenerator
+2024-01-03 11:33:16 [INFO] Executing Step 3: CachePopulation
+2024-01-03 11:33:16 [INFO] Executing Step 4: CodeExecution
+2024-01-03 11:33:16 [INFO] Saving charts to c:\work\exports\charts\temp_chart.png
+2024-01-03 11:33:16 [INFO] 
+Code running:
+```
+df = pd.concat(dfs)
+df_sorted = df.sort_values(by='happiness_index', ascending=False)
+top_5_countries = df_sorted.head(5)['country'].tolist()
+result = {'type': 'string', 'value': f"The top 5 happiest countries are {', '.join(top_5_countries)}."}
+        ```
+2024-01-03 11:33:16 [INFO] Executing Step 5: ResultValidation
+2024-01-03 11:33:16 [INFO] Answer: {'type': 'string', 'value': 'The top 5 happiest countries are Canada, Australia, United Kingdom, Germany, United States.'}
+2024-01-03 11:33:16 [INFO] Executed in: 4.950969457626343s
+2024-01-03 11:33:16 [INFO] Executing Step 6: ResultParsing
+2024-01-03 11:33:16 [INFO] Question: 가장 행복하지 않은 2개 나라의 GDP합계는 얼마인가?
+2024-01-03 11:33:17 [INFO] Running PandasAI with openai LLM...
+2024-01-03 11:33:17 [INFO] Prompt ID: a03336e1-cfc8-4b72-a40c-ae968e930f00
+2024-01-03 11:33:17 [INFO] Executing Step 0: CacheLookup
+2024-01-03 11:33:17 [INFO] Using cached response
+2024-01-03 11:33:17 [INFO] Executing Step 1: PromptGeneration
+2024-01-03 11:33:17 [INFO] Executing Step 2: CodeGenerator
+2024-01-03 11:33:17 [INFO] Executing Step 3: CachePopulation
+2024-01-03 11:33:17 [INFO] Executing Step 4: CodeExecution
+2024-01-03 11:33:17 [INFO] Saving charts to c:\work\exports\charts\temp_chart.png
+2024-01-03 11:33:17 [INFO] 
+Code running:
+```
+df = dfs[0]
+df_sorted = df.sort_values(by='happiness_index')
+lowest_happiness_countries = df_sorted.head(2)
+gdp_sum = lowest_happiness_countries['gdp'].sum()
+result = {'type': 'number', 'value': gdp_sum}
+        ```
+2024-01-03 11:33:17 [INFO] Executing Step 5: ResultValidation
+2024-01-03 11:33:17 [INFO] Answer: {'type': 'number', 'value': 19012600725504}
+2024-01-03 11:33:17 [INFO] Executed in: 0.27756381034851074s
+2024-01-03 11:33:17 [INFO] Executing Step 6: ResultParsing
+2024-01-03 11:33:17 [INFO] Question: 각각의 나라별 GDP를 5개만 보여주는 히스토그램을 그리는데 각 바를 다른 컬러로 그려야해?
+2024-01-03 11:33:17 [INFO] Running PandasAI with openai LLM...
+2024-01-03 11:33:17 [INFO] Prompt ID: 9f1ffe25-be73-4ce4-9c14-e7c3bb3ec0eb
+2024-01-03 11:33:17 [INFO] Executing Step 0: CacheLookup
+2024-01-03 11:33:17 [INFO] Using cached response
+2024-01-03 11:33:17 [INFO] Executing Step 1: PromptGeneration
+2024-01-03 11:33:17 [INFO] Executing Step 2: CodeGenerator
+2024-01-03 11:33:17 [INFO] Executing Step 3: CachePopulation
+2024-01-03 11:33:17 [INFO] Executing Step 4: CodeExecution
+2024-01-03 11:33:17 [INFO] Saving charts to c:\work\exports\charts\temp_chart.png
+2024-01-03 11:33:17 [INFO] 
+Code running:
+```
+df = dfs[0]
+top_5_gdp = df.nlargest(5, 'gdp')
+plt.bar(top_5_gdp['country'], top_5_gdp['gdp'], color=['red', 'blue', 'green', 'yellow', 'orange'])
+plt.xlabel('Country')
+plt.ylabel('GDP')
+plt.title('Top 5 Countries by GDP')
+plt.show()
+result = {'type': 'plot', 'value': 'c:/work/exports/charts/temp_chart.png'}
+        ```
+2024-01-03 11:33:19 [INFO] Executing Step 5: ResultValidation
+2024-01-03 11:33:19 [INFO] Answer: {'type': 'plot', 'value': 'c:/work/exports/charts/temp_chart.png'}
+2024-01-03 11:33:19 [INFO] Executed in: 2.5906965732574463s
+2024-01-03 11:33:19 [INFO] Executing Step 6: ResultParsing
+2024-01-03 11:33:32 [INFO] Question: 월급을 가장 많이 받는 사람의 이름은(Name)?
+2024-01-03 11:33:32 [INFO] Running PandasAI with openai LLM...
+2024-01-03 11:33:32 [INFO] Prompt ID: bd7ae824-b164-416c-84c2-50133b903c36
+2024-01-03 11:33:32 [INFO] Executing Step 0: CacheLookup
+2024-01-03 11:33:32 [INFO] Using cached response
+2024-01-03 11:33:32 [INFO] Executing Step 1: PromptGeneration
+2024-01-03 11:33:32 [INFO] Executing Step 2: CodeGenerator
+2024-01-03 11:33:32 [INFO] Executing Step 3: CachePopulation
+2024-01-03 11:33:32 [INFO] Executing Step 4: CodeExecution
+2024-01-03 11:33:32 [INFO] Saving charts to c:\work\exports\charts\temp_chart.png
+2024-01-03 11:33:32 [INFO] 
+Code running:
+```
+df1 = dfs[0]
+df2 = dfs[1]
+merged_df = pd.merge(df1, df2, on='EmployeeID')
+highest_salary = merged_df['Salary'].max()
+employee_name = merged_df.loc[merged_df['Salary'] == highest_salary, 'Name'].values[0]
+result = {'type': 'string', 'value': f'The employee with the highest salary is {employee_name}.'}
+        ```
+2024-01-03 11:33:32 [INFO] Executing Step 5: ResultValidation
+2024-01-03 11:33:32 [INFO] Answer: {'type': 'string', 'value': 'The employee with the highest salary is moon.'}
+2024-01-03 11:33:32 [INFO] Executed in: 0.3423786163330078s
+2024-01-03 11:33:32 [INFO] Executing Step 6: ResultParsing
+2024-01-03 11:51:28 [INFO] Question: 타이타닉호에서 생존한 남자와 여자의 비율을 알려줘
+2024-01-03 11:51:28 [INFO] Running PandasAI with openai LLM...
+2024-01-03 11:51:28 [INFO] Prompt ID: 81e03dcf-25cb-47e3-ad07-873cbc93bbde
+2024-01-03 11:51:28 [INFO] Executing Step 0: CacheLookup
+2024-01-03 11:51:28 [INFO] Executing Step 1: PromptGeneration
+2024-01-03 11:51:28 [INFO] Using prompt: <dataframe>
+dfs[0]:891x12
+PassengerId,Survived,Pclass,Name,Sex,Age,SibSp,Parch,Ticket,Fare,Cabin,Embarked
+1,0,3,"Braund, Mr. Owen Harris",male,22.0,1,0,A/5 21171,7.25,,S
+2,1,1,"Cumings, Mrs. John Bradley (Florence Briggs Thayer)",female,38.0,1,0,PC 17599,71.2833,C85,C
+3,1,3,"Heikkinen, Miss. Laina",female,26.0,0,0,STON/O2. 3101282,7.925,,S
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+```
+
+Q: 타이타닉호에서 생존한 남자와 여자의 비율을 알려줘
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+
+
+Generate python code and return full updated code:
+2024-01-03 11:51:28 [INFO] Executing Step 2: CodeGenerator
+2024-01-03 11:51:33 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-01-03 11:51:33 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+df = dfs[0]
+
+# Calculate the total number of passengers
+total_passengers = len(df)
+
+# Calculate the number of male passengers
+male_passengers = len(df[df['Sex'] == 'male'])
+
+# Calculate the number of female passengers
+female_passengers = len(df[df['Sex'] == 'female'])
+
+# Calculate the ratio of male and female survivors
+male_survivors = len(df[(df['Sex'] == 'male') & (df['Survived'] == 1)])
+female_survivors = len(df[(df['Sex'] == 'female') & (df['Survived'] == 1)])
+
+male_survival_ratio = male_survivors / male_passengers
+female_survival_ratio = female_survivors / female_passengers
+
+# Declare result var
+result = {
+    "type": "string",
+    "value": f"The survival ratio of males is {male_survival_ratio:.2f} and the survival ratio of females is {female_survival_ratio:.2f}."
+}
+            ```
+            
+2024-01-03 11:51:33 [INFO] Executing Step 3: CachePopulation
+2024-01-03 11:51:33 [INFO] Executing Step 4: CodeExecution
+2024-01-03 11:51:33 [INFO] Saving charts to C:\work\exports\charts\temp_chart.png
+2024-01-03 11:51:33 [INFO] 
+Code running:
+```
+df = dfs[0]
+total_passengers = len(df)
+male_passengers = len(df[df['Sex'] == 'male'])
+female_passengers = len(df[df['Sex'] == 'female'])
+male_survivors = len(df[(df['Sex'] == 'male') & (df['Survived'] == 1)])
+female_survivors = len(df[(df['Sex'] == 'female') & (df['Survived'] == 1)])
+male_survival_ratio = male_survivors / male_passengers
+female_survival_ratio = female_survivors / female_passengers
+result = {'type': 'string', 'value': f'The survival ratio of males is {male_survival_ratio:.2f} and the survival ratio of females is {female_survival_ratio:.2f}.'}
+        ```
+2024-01-03 11:51:33 [INFO] Executing Step 5: ResultValidation
+2024-01-03 11:51:33 [INFO] Answer: {'type': 'string', 'value': 'The survival ratio of males is 0.19 and the survival ratio of females is 0.74.'}
+2024-01-03 11:51:33 [INFO] Executed in: 4.402541637420654s
+2024-01-03 11:51:33 [INFO] Executing Step 6: ResultParsing

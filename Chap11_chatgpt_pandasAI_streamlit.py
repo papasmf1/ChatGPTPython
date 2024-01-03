@@ -7,7 +7,6 @@ from pandasai import SmartDataframe
 from pandasai.llm import OpenAI
 import matplotlib
 
-
 matplotlib.use("TkAgg")
 
 #내가 사용하는 Open AI Key로 변경해야 합니다. 
