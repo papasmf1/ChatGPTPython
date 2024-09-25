@@ -7,13 +7,17 @@ Chap09_ChatGPT로생성한네이버블로그검색231026.py
 
 *pandasai에 관련된 코드가 많이 수정되었습니다. 
 (버전 문제가 있기 때문에 기존 pandas는 제거하고 설치한다.) 
+
 pip uninstall pandas 
+
 pip install pandasAI
 
 *pandasai와 관련된 내용은 아래의 사이트에서 해당 설명을 체크할 수 있습니다. 
+
 https://github.com/gventuri/pandas-ai
 
 *OpenAI에서 제공하는 키는 아래의 링크를 통해서 확인합니다. 
+
 https://platform.openai.com/account/api-keys
 
 *Streamlit에서 에러가 발생하면 아래와 같이 duckdb버전을 추가로 셋팅합니다. 
